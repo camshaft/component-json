@@ -8,10 +8,12 @@ var path = require("path");
  */
 module.exports = function(options) {
 
+  var property = options.property || "json";
+
   return function(builder) {
     builder.hook('before scripts', function(pkg){
 
-      var files = pkg.conf.json;
+      var files = pkg.conf[property];
       if (!files) return;
 
       var jsonFiles = [];
@@ -30,7 +32,7 @@ module.exports = function(options) {
       });
 
       jsonFiles.forEach(function(file) {
-        pkg.removeFile("json", file);
+        pkg.removeFile(property, file);
       });
     });
   };
