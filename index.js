@@ -7,7 +7,7 @@ var path = require("path");
  * Expose plugin
  */
 module.exports = function(options) {
-
+  options = options || {};
   var property = options.property || "json";
 
   return function(builder) {
