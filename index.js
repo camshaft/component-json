@@ -13,7 +13,7 @@ module.exports = function(options) {
   return function(builder) {
     builder.hook('before scripts', function(pkg){
 
-      var files = pkg.conf[property];
+      var files = pkg.config[property];
       if (!files) return;
 
       var jsonFiles = [];
