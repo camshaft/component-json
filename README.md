@@ -32,3 +32,10 @@ console.log(component.version);
 }
 
 ```
+
+Or use directly with `component-build`
+
+```
+$ npm install component-json
+$ component build --use component-json
+```
