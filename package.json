@@ -1,6 +1,6 @@
 {
   "name": "component-json",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Component plugin for JSON files",
   "main": "index.js",
   "scripts": {
