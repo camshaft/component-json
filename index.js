@@ -10,7 +10,7 @@ module.exports = function(options) {
   options = options || {};
   var property = options.property || "json";
 
-  return function(builder) {
+  var buildFn = function(builder) {
     builder.hook('before scripts', function(pkg){
 
       var files = pkg.config[property];
@@ -36,4 +36,13 @@ module.exports = function(options) {
       });
     });
   };
+
+  // If consumed directly though `component build --use component-json`
+  if ('function' === typeof options.hook) {
+    var builder = options
+    buildFn(builder);
+  } else {
+    return buildFn;
+  }
+
 };
