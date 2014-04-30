@@ -26,7 +26,7 @@ module.exports = function(options) {
 
         var json = require(pkg.path(file));
 
-        var js = "module.exports = JSON.parse('"+JSON.stringify(json).replace(/'/g, "\\'")+"');";
+        var js = "module.exports = JSON.parse('"+JSON.stringify(json).replace(/\\/g, "\\\\").replace(/'/g, "\\'") + "');";
 
         pkg.addFile('scripts', file, js);
       });
